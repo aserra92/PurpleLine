@@ -2,34 +2,17 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include "src/Window.h"
 
 int main(int argc, char *argv[])
 {
-	if (!glfwInit())
+	using namespace PurpleLine;
+	using namespace Graphics;
+	Window *window = new Window();
+	if (!window->Initialize())
 	{
-		std::cout << "Library GLFW cannot be initialized" << std::endl; //TODO: do with log
-		return false;
+		return 0;
 	}
-
-	GLFWwindow *window;
-	window = glfwCreateWindow(1280, 720, "PurpleLine", NULL, NULL);
-	if (!window)
-	{
-		glfwTerminate();
-		std::cout << "GLFW Window cannot be created" << std::endl; //TODO: do with log
-		return false;
-	}
-	glfwMakeContextCurrent(window);
-
-	if (glewInit() != GLEW_OK)
-	{
-		std::cout << "GLEW failed to initialize" << std::endl; //TODO: do with log
-		return false;
-	}
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-	std::cout << "OpenGL " << glGetString(GL_VERSION) << std::endl; //TODO: do with log
 
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
@@ -49,7 +32,7 @@ int main(int argc, char *argv[])
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
 
 
-	while (!glfwWindowShouldClose(window))
+	while (!(window->IsClosed()))
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 
@@ -68,11 +51,9 @@ int main(int argc, char *argv[])
 		glDrawArrays(GL_TRIANGLES, 0, 3); // Starting from vertex 0; 3 vertices total -> 1 triangle
 		glDisableVertexAttribArray(0);
 
-		glfwSwapBuffers(window);
-		glfwPollEvents();
+		window->PollEventsAndSwapBuffers();
 	}
 
-	glfwTerminate();
 	system("PAUSE");
 	return 0;
 }
