@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include "src/Window.h"
 #include "src/Shader.h"
+#include "src/Buffers/ArrayBuffer.h"
 
 int main(int argc, char *argv[])
 {
@@ -16,19 +17,14 @@ int main(int argc, char *argv[])
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
-	static const GLfloat g_vertex_buffer_data[] = {
+	GLfloat g_vertex_buffer_data[] = {
 		-1.0f, -1.0f, 0.0f,
 		1.0f, -1.0f, 0.0f,
 		0.0f,  1.0f, 0.0f,
 	};
-	// This will identify our vertex buffer
-	GLuint vertexbuffer;
-	// Generate 1 buffer, put the resulting identifier in vertexbuffer
-	glGenBuffers(1, &vertexbuffer);
-	// The following commands will talk about our 'vertexbuffer' buffer
-	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	// Give our vertices to OpenGL.
-	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
+
+	ArrayBuffer *arrayBuffer = new ArrayBuffer(g_vertex_buffer_data, 3 * 3, 3);
+	
 	Shader *shader = new Shader("E:\\OneDrive\\els meus documents\\Aria\\jocs\\PurpleLine\\Shaders\\basic.vs", "E:\\OneDrive\\els meus documents\\Aria\\jocs\\PurpleLine\\Shaders\\basic.frag");
 
 
@@ -38,7 +34,7 @@ int main(int argc, char *argv[])
 		shader->Enable();
 		// 1st attribute buffer : vertices
 		glEnableVertexAttribArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+		arrayBuffer->Bind();
 		glVertexAttribPointer(
 			0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
 			3,                  // size
