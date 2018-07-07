@@ -1,7 +1,5 @@
-#include <stdlib.h>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <iostream>
 #include "src/Window.h"
 
 int main(int argc, char *argv[])
@@ -54,6 +52,6 @@ int main(int argc, char *argv[])
 		window->PollEventsAndSwapBuffers();
 	}
 
-	system("PAUSE");
+//	system("PAUSE");
 	return 0;
 }

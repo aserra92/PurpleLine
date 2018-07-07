@@ -1,8 +1,9 @@
 #include "Window.h"
-
-#include <iostream>
+#include "Utils/Log.h"
 
 namespace PurpleLine{ namespace Graphics {
+
+using namespace Internal;
 
 Window::Window()
 {
@@ -18,7 +19,7 @@ bool Window::Initialize()
 {
 	if (!glfwInit())
 	{
-		std::cout << "Library GLFW cannot be initialized" << std::endl; //TODO: do with log
+		LOG_FATAL("Library GLFW cannot be initialized");
 		return false;
 	}
 
@@ -26,20 +27,20 @@ bool Window::Initialize()
 	if (!window)
 	{
 		glfwTerminate();
-		std::cout << "GLFW Window cannot be created" << std::endl; //TODO: do with log
+		LOG_FATAL("GLFW Window cannot be created");
 		return false;
 	}
 	glfwMakeContextCurrent(window);
 
 	if (glewInit() != GLEW_OK)
 	{
-		std::cout << "GLEW failed to initialize" << std::endl; //TODO: do with log
+		LOG_FATAL("GLEW failed to initialize");
 		return false;
 	}
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	std::cout << "OpenGL " << glGetString(GL_VERSION) << std::endl; //TODO: do with log
+	LOG_INFO("OpenGL ", glGetString(GL_VERSION));
 	return true;
 }
 

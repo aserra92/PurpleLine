@@ -73,10 +73,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(SolutionDir)\Dependencies\GLFW\include;$(SolutionDir)\Dependencies\GLEW\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\Dependencies\GLFW\lib-vc2015;$(SolutionDir)\Dependencies\GLEW\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\bin\$(Configuration)\Intermediate\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>$(SolutionDir)\Dependencies\GLFW\lib-vc2015;$(SolutionDir)\Dependencies\GLEW\lib;$(LibraryPath)</LibraryPath>
     <IncludePath>$(SolutionDir)\Dependencies\GLFW\include;$(SolutionDir)\Dependencies\GLEW\include;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)\bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\bin\$(Configuration)\Intermediate\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -85,6 +89,8 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(SolutionDir)PurpleLine\src\PCH.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -107,6 +113,8 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(SolutionDir)PurpleLine\src\PCH.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -130,9 +138,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Utils\Log.cpp" />
+    <ClCompile Include="src\Utils\String.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\CommonTypes.h" />
+    <ClInclude Include="src\Utils\Log.h" />
+    <ClInclude Include="src\Utils\String.h" />
     <ClInclude Include="src\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
