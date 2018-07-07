@@ -138,12 +138,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\Utils\Log.cpp" />
     <ClCompile Include="src\Utils\String.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CommonTypes.h" />
+    <ClInclude Include="src\Shader.h" />
+    <ClInclude Include="src\Utils\FileUtils.h" />
     <ClInclude Include="src\Utils\Log.h" />
     <ClInclude Include="src\Utils\String.h" />
     <ClInclude Include="src\Window.h" />
