@@ -141,6 +141,7 @@
     <ClCompile Include="src\Buffers\ArrayBuffer.cpp" />
     <ClCompile Include="src\Buffers\ElementArrayBuffer.cpp" />
     <ClCompile Include="src\Buffers\VertexArray.cpp" />
+    <ClCompile Include="src\Maths\Matrix4.cpp" />
     <ClCompile Include="src\Maths\Vector2.cpp" />
     <ClCompile Include="src\Maths\Vector3.cpp" />
     <ClCompile Include="src\Maths\Vector4.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="src\CommonTypes.h" />
     <ClInclude Include="src\Maths\maths.h" />
     <ClInclude Include="src\Maths\MathsUtils.h" />
+    <ClInclude Include="src\Maths\Matrix4.h" />
     <ClInclude Include="src\Maths\Vector2.h" />
     <ClInclude Include="src\Maths\Vector3.h" />
     <ClInclude Include="src\Maths\Vector4.h" />
