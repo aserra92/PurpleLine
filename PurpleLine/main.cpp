@@ -3,6 +3,7 @@
 #include "src/Window.h"
 #include "src/Shader.h"
 #include "src/Buffers/ArrayBuffer.h"
+#include "src/Buffers/VertexArray.h"
 
 int main(int argc, char *argv[])
 {
@@ -14,9 +15,7 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 
-	GLuint VertexArrayID;
-	glGenVertexArrays(1, &VertexArrayID);
-	glBindVertexArray(VertexArrayID);
+	VertexArray *vertexArray = new VertexArray();
 	GLfloat g_vertex_buffer_data[] = {
 		-1.0f, -1.0f, 0.0f,
 		1.0f, -1.0f, 0.0f,
@@ -24,13 +23,14 @@ int main(int argc, char *argv[])
 	};
 
 	ArrayBuffer *arrayBuffer = new ArrayBuffer(g_vertex_buffer_data, 3 * 3, 3);
+	vertexArray->AddBuffer(arrayBuffer, 0);
 	
 	Shader *shader = new Shader("E:\\OneDrive\\els meus documents\\Aria\\jocs\\PurpleLine\\Shaders\\basic.vs", "E:\\OneDrive\\els meus documents\\Aria\\jocs\\PurpleLine\\Shaders\\basic.frag");
 
 
 	while (!(window->IsClosed()))
 	{
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		shader->Enable();
 		// 1st attribute buffer : vertices
 		glEnableVertexAttribArray(0);

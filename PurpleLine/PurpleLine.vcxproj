@@ -139,6 +139,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Buffers\ArrayBuffer.cpp" />
+    <ClCompile Include="src\Buffers\VertexArray.cpp" />
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\Utils\Log.cpp" />
     <ClCompile Include="src\Utils\String.cpp" />
@@ -146,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Buffers\ArrayBuffer.h" />
+    <ClInclude Include="src\Buffers\VertexArray.h" />
     <ClInclude Include="src\CommonTypes.h" />
     <ClInclude Include="src\Shader.h" />
     <ClInclude Include="src\Utils\FileUtils.h" />
