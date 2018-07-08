@@ -11,7 +11,7 @@ protected:
 	}
 
 public:
-	Renderable2D(unsigned int color) :
+	Renderable2D(Math::Vector3 position, Math::Vector2 size, unsigned int color) :
 		color(color)
 	{
 	}

@@ -3,16 +3,16 @@
 
 namespace PurpleLine{namespace Graphics{
 
-StaticSprite::StaticSprite(float height, float width, Math::Vector4 color, Shader & shader) :
-	Renderable2D(0xffff00ff),
+StaticSprite::StaticSprite(Math::Vector3 position, Math::Vector2 size, Math::Vector4 color, Shader & shader) :
+	Renderable2D(position, size, 0xffff00ff),
 	shader(shader)
 {
 	vertexArray = new VertexArray();
 	GLfloat vertices[] = {
 		0, 0, 0,
-		0, height, 0,
-		width, height, 0,
-		width, 0, 0
+		0, size.y, 0,
+		size.x, size.y, 0,
+		size.x, 0, 0
 	};
 	GLfloat colors[] = {
 		color.x, color.y, color.z, color.w,

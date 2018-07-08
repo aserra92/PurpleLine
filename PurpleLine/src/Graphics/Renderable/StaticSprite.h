@@ -9,7 +9,7 @@ namespace PurpleLine{namespace Graphics{
 	class StaticSprite : public Renderable2D
 	{
 	public:
-		StaticSprite(float height, float width, Math::Vector4 color, Shader& shader);
+		StaticSprite(Math::Vector3 position, Math::Vector2 size, Math::Vector4 color, Shader& shader);
 		~StaticSprite();
 
 		inline Shader& GetShader()const { return shader; }

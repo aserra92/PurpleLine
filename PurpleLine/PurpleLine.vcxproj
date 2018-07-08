@@ -172,6 +172,7 @@
     <ClInclude Include="src\Utils\Log.h" />
     <ClInclude Include="src\Utils\String.h" />
     <ClInclude Include="src\Graphics\Window.h" />
+    <ClInclude Include="src\Utils\Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -46,6 +46,12 @@ namespace PurpleLine{namespace Internal{
 	}
 
 	template <>
+	static String ToString<unsigned int>(const unsigned int& i)
+	{
+		return std::to_string(i);
+	}
+
+	template <>
 	static String ToString<wchar_t*>(wchar_t* const& t)
 	{
 		size_t i;
