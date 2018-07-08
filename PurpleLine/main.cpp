@@ -5,6 +5,7 @@
 #include "src/Buffers/ArrayBuffer.h"
 #include "src/Buffers/VertexArray.h"
 #include "src/Maths/maths.h"
+#include "src/Renderable/StaticSprite.h"
 
 int Close()
 {
@@ -40,10 +41,11 @@ int main(int argc, char *argv[])
 	}
 	shader->Enable();
 	shader->SetUniform4f("color", Math::Vector4(0, 0, 1, 1));
+	StaticSprite* staticSprite = new StaticSprite(Math::Vector4(0, 0, 1, 1), *shader);
 
 	while (!(window->IsClosed()))
 	{
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		window->Clear();
 		shader->Enable();
 
 		// 1st attribute buffer : vertices

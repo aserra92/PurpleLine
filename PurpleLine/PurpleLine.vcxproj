@@ -145,6 +145,7 @@
     <ClCompile Include="src\Maths\Vector2.cpp" />
     <ClCompile Include="src\Maths\Vector3.cpp" />
     <ClCompile Include="src\Maths\Vector4.cpp" />
+    <ClCompile Include="src\Renderable\StaticSprite.cpp" />
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\Utils\Log.cpp" />
     <ClCompile Include="src\Utils\String.cpp" />
@@ -161,6 +162,8 @@
     <ClInclude Include="src\Maths\Vector2.h" />
     <ClInclude Include="src\Maths\Vector3.h" />
     <ClInclude Include="src\Maths\Vector4.h" />
+    <ClInclude Include="src\Renderable\Renderable2D.h" />
+    <ClInclude Include="src\Renderable\StaticSprite.h" />
     <ClInclude Include="src\Shader.h" />
     <ClInclude Include="src\Utils\FileUtils.h" />
     <ClInclude Include="src\Utils\Log.h" />
