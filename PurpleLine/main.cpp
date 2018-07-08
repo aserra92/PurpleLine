@@ -4,6 +4,13 @@
 #include "src/Shader.h"
 #include "src/Buffers/ArrayBuffer.h"
 #include "src/Buffers/VertexArray.h"
+#include "src/Maths/maths.h"
+
+int Close()
+{
+	system("PAUSE");
+	return 0;
+}
 
 int main(int argc, char *argv[])
 {
@@ -12,8 +19,9 @@ int main(int argc, char *argv[])
 	Window *window = new Window();
 	if (!window->Initialize())
 	{
-		return 0;
+		return Close();
 	}
+	glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
 
 	VertexArray *vertexArray = new VertexArray();
 	GLfloat g_vertex_buffer_data[] = {
@@ -26,12 +34,18 @@ int main(int argc, char *argv[])
 	vertexArray->AddBuffer(arrayBuffer, 0);
 	
 	Shader *shader = new Shader("E:\\OneDrive\\els meus documents\\Aria\\jocs\\PurpleLine\\Shaders\\basic.vs", "E:\\OneDrive\\els meus documents\\Aria\\jocs\\PurpleLine\\Shaders\\basic.frag");
-
+	if (!shader->Compiled())
+	{
+		return Close();
+	}
+	shader->Enable();
+	shader->SetUniform4f("color", Math::Vector4(0, 0, 1, 1));
 
 	while (!(window->IsClosed()))
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		shader->Enable();
+
 		// 1st attribute buffer : vertices
 		glEnableVertexAttribArray(0);
 		arrayBuffer->Bind();
@@ -48,8 +62,6 @@ int main(int argc, char *argv[])
 		glDisableVertexAttribArray(0);
 
 		window->PollEventsAndSwapBuffers();
-	}
-
-//	system("PAUSE");
+	}	
 	return 0;
 }

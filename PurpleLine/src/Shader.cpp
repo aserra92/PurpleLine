@@ -7,7 +7,8 @@ namespace PurpleLine{ namespace Graphics{
 
 Shader::Shader(String vertexShaderPath, String fragmentShaderPath) :
 	vShaderPath(vertexShaderPath),
-	fShaderPath(fragmentShaderPath)
+	fShaderPath(fragmentShaderPath),
+	compiled(false)
 {
 	Load();
 }
@@ -30,6 +31,51 @@ void Shader::Enable() const
 void Shader::Disable() const
 {
 	glUseProgram(0);
+}
+
+bool Shader::Compiled() const
+{
+	return compiled;
+}
+
+void Shader::SetUniform1i(String name, int a)
+{
+	glUniform1i(GetUniformLocation(name.c_str()), a);
+}
+
+void Shader::SetUniform1f(String name, float a)
+{
+	glUniform1f(GetUniformLocation(name.c_str()), a);
+}
+
+void Shader::SetUniform2f(String name, float a, float b)
+{
+	glUniform2f(GetUniformLocation(name.c_str()), a, b);
+}
+
+void Shader::SetUniform2f(String name, Math::Vector2 vector)
+{
+	glUniform2f(GetUniformLocation(name.c_str()), vector.x, vector.y);
+}
+
+void Shader::SetUniform3f(String name, float a, float b, float c)
+{
+	glUniform3f(GetUniformLocation(name.c_str()), a, b, c);
+}
+
+void Shader::SetUniform3f(String name, Math::Vector3 vector)
+{
+	glUniform3f(GetUniformLocation(name.c_str()), vector.x, vector.y, vector.z);
+}
+
+void Shader::SetUniform4f(String name, float a, float b, float c, float d)
+{
+	glUniform4f(GetUniformLocation(name.c_str()), a, b, c, d);
+}
+
+void Shader::SetUniform4f(String name, Math::Vector4 vector)
+{
+	glUniform4f(GetUniformLocation(name.c_str()), vector.x, vector.y, vector.z, vector.w);
 }
 
 void Shader::Load()
@@ -65,9 +111,12 @@ void Shader::CreateProgram(GLuint vertexID, GLuint fragmentID)
 	{
 		GLint length;
 		glGetProgramiv(programID, GL_INFO_LOG_LENGTH, &length);
-		std::vector<char> infoLog(length);
-		glGetProgramInfoLog(programID, length, &length, &infoLog[0]);
-		LOG_ERROR("Error compiling program\n", infoLog[0]);
+		GLchar *infoLog = new GLchar(length);
+		glGetProgramInfoLog(programID, length, &length, infoLog);
+		LOG_ERROR("Error compiling program\n", infoLog);
+	}
+	else {
+		compiled = true;
 	}
 }
 
@@ -82,13 +131,18 @@ GLuint Shader::CreateShader(GLenum shaderType, const GLchar* code)
 	{
 		GLint length;
 		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
-		std::vector<char> infoLog(length);
-		glGetShaderInfoLog(shader, length, &length, &infoLog[0]);
-		LOG_ERROR("Error compiling shader\n", infoLog[0]);
+		GLchar *infoLog = new GLchar(length);
+		glGetShaderInfoLog(shader, length, &length, infoLog);
+		LOG_ERROR("Error compiling shader\n", infoLog);
 		glDeleteShader(shader);
 		return -1;
 	}
 	return shader;
+}
+
+GLint Shader::GetUniformLocation(const GLchar * name)
+{
+	return glGetUniformLocation(programID, name);
 }
 
 }}

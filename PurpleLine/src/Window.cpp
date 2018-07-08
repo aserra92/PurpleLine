@@ -31,6 +31,7 @@ bool Window::Initialize()
 		return false;
 	}
 	glfwMakeContextCurrent(window);
+	glfwSwapInterval(0);
 
 	if (glewInit() != GLEW_OK)
 	{
@@ -55,6 +56,11 @@ bool Window::IsClosed()
 
 void Window::PollEventsAndSwapBuffers()
 {
+	GLenum error = glGetError();
+	if (error != GL_NO_ERROR)
+	{
+		LOG_ERROR("openGL error!!: ", error);
+	}
 	glfwSwapBuffers(window);
 	glfwPollEvents();
 }
