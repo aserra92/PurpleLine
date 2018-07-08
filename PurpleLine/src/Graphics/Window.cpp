@@ -9,7 +9,6 @@ Window::Window()
 {
 }
 
-
 Window::~Window()
 {
 	glfwTerminate();

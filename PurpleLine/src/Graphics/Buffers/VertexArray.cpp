@@ -20,8 +20,8 @@ namespace PurpleLine{ namespace Graphics{
 	{
 		Bind();
 		buffer->Bind();
-		glEnableVertexAttribArray(bufferID);
-		glVertexAttribPointer(bufferID, buffer->GetComponentCount(), GL_FLOAT, GL_FALSE, 0, 0);
+		glEnableVertexAttribArray(indexLayout);
+		glVertexAttribPointer(indexLayout, buffer->GetComponentCount(), GL_FLOAT, GL_FALSE, 0, 0);
 		buffer->Unbind();
 		Unbind();
 		listBuffers.push_back(buffer);

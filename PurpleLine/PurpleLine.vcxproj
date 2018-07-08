@@ -141,6 +141,7 @@
     <ClCompile Include="src\Graphics\Buffers\ArrayBuffer.cpp" />
     <ClCompile Include="src\Graphics\Buffers\ElementArrayBuffer.cpp" />
     <ClCompile Include="src\Graphics\Buffers\VertexArray.cpp" />
+    <ClCompile Include="src\Graphics\SimpleRenderer2D.cpp" />
     <ClCompile Include="src\Maths\Matrix4.cpp" />
     <ClCompile Include="src\Maths\Vector2.cpp" />
     <ClCompile Include="src\Maths\Vector3.cpp" />
@@ -156,6 +157,8 @@
     <ClInclude Include="src\Graphics\Buffers\ElementArrayBuffer.h" />
     <ClInclude Include="src\Graphics\Buffers\VertexArray.h" />
     <ClInclude Include="src\CommonTypes.h" />
+    <ClInclude Include="src\Graphics\Renderer2D.h" />
+    <ClInclude Include="src\Graphics\SimpleRenderer2D.h" />
     <ClInclude Include="src\Maths\maths.h" />
     <ClInclude Include="src\Maths\MathsUtils.h" />
     <ClInclude Include="src\Maths\Matrix4.h" />
