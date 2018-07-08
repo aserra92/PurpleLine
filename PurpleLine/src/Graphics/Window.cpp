@@ -1,5 +1,5 @@
 #include "Window.h"
-#include "Utils/Log.h"
+#include "../Utils/Log.h"
 
 namespace PurpleLine{ namespace Graphics {
 

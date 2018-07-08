@@ -1,6 +1,6 @@
 #include "Shader.h"
-#include "Utils/FileUtils.h"
-#include "Utils/Log.h"
+#include "../Utils/FileUtils.h"
+#include "../Utils/Log.h"
 #include <vector>
 
 namespace PurpleLine{ namespace Graphics{

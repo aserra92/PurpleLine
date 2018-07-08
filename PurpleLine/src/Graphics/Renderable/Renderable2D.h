@@ -1,12 +1,11 @@
 #pragma once
-#include "../Maths/maths.h"
+#include "../../Maths/maths.h"
 
 namespace PurpleLine{namespace Graphics{
 class Renderable2D {
 protected:
 	unsigned int color;
 
-protected:
 	Renderable2D() {
 
 	}

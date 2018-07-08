@@ -138,23 +138,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\Buffers\ArrayBuffer.cpp" />
-    <ClCompile Include="src\Buffers\ElementArrayBuffer.cpp" />
-    <ClCompile Include="src\Buffers\VertexArray.cpp" />
+    <ClCompile Include="src\Graphics\Buffers\ArrayBuffer.cpp" />
+    <ClCompile Include="src\Graphics\Buffers\ElementArrayBuffer.cpp" />
+    <ClCompile Include="src\Graphics\Buffers\VertexArray.cpp" />
     <ClCompile Include="src\Maths\Matrix4.cpp" />
     <ClCompile Include="src\Maths\Vector2.cpp" />
     <ClCompile Include="src\Maths\Vector3.cpp" />
     <ClCompile Include="src\Maths\Vector4.cpp" />
-    <ClCompile Include="src\Renderable\StaticSprite.cpp" />
-    <ClCompile Include="src\Shader.cpp" />
+    <ClCompile Include="src\Graphics\Renderable\StaticSprite.cpp" />
+    <ClCompile Include="src\Graphics\Shader.cpp" />
     <ClCompile Include="src\Utils\Log.cpp" />
     <ClCompile Include="src\Utils\String.cpp" />
-    <ClCompile Include="src\Window.cpp" />
+    <ClCompile Include="src\Graphics\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Buffers\ArrayBuffer.h" />
-    <ClInclude Include="src\Buffers\ElementArrayBuffer.h" />
-    <ClInclude Include="src\Buffers\VertexArray.h" />
+    <ClInclude Include="src\Graphics\Buffers\ArrayBuffer.h" />
+    <ClInclude Include="src\Graphics\Buffers\ElementArrayBuffer.h" />
+    <ClInclude Include="src\Graphics\Buffers\VertexArray.h" />
     <ClInclude Include="src\CommonTypes.h" />
     <ClInclude Include="src\Maths\maths.h" />
     <ClInclude Include="src\Maths\MathsUtils.h" />
@@ -162,13 +162,13 @@
     <ClInclude Include="src\Maths\Vector2.h" />
     <ClInclude Include="src\Maths\Vector3.h" />
     <ClInclude Include="src\Maths\Vector4.h" />
-    <ClInclude Include="src\Renderable\Renderable2D.h" />
-    <ClInclude Include="src\Renderable\StaticSprite.h" />
-    <ClInclude Include="src\Shader.h" />
+    <ClInclude Include="src\Graphics\Renderable\Renderable2D.h" />
+    <ClInclude Include="src\Graphics\Renderable\StaticSprite.h" />
+    <ClInclude Include="src\Graphics\Shader.h" />
     <ClInclude Include="src\Utils\FileUtils.h" />
     <ClInclude Include="src\Utils\Log.h" />
     <ClInclude Include="src\Utils\String.h" />
-    <ClInclude Include="src\Window.h" />
+    <ClInclude Include="src\Graphics\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

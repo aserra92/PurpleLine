@@ -3,7 +3,7 @@
 #include "../Shader.h"
 namespace PurpleLine{namespace Graphics{
 
-	class StaticSprite : Renderable2D
+	class StaticSprite : public Renderable2D
 	{
 	public:
 		StaticSprite(Math::Vector4 color, Shader& shader);

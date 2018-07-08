@@ -1,11 +1,11 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "src/Window.h"
-#include "src/Shader.h"
-#include "src/Buffers/ArrayBuffer.h"
-#include "src/Buffers/VertexArray.h"
+#include "src/Graphics/Window.h"
+#include "src/Graphics/Shader.h"
+#include "src/Graphics/Buffers/ArrayBuffer.h"
+#include "src/Graphics/Buffers/VertexArray.h"
+#include "src/Graphics/Renderable/StaticSprite.h"
 #include "src/Maths/maths.h"
-#include "src/Renderable/StaticSprite.h"
 
 int Close()
 {
@@ -42,6 +42,7 @@ int main(int argc, char *argv[])
 	shader->Enable();
 	shader->SetUniform4f("color", Math::Vector4(0, 0, 1, 1));
 	StaticSprite* staticSprite = new StaticSprite(Math::Vector4(0, 0, 1, 1), *shader);
+	staticSprite->SetColor(Math::Vector4(0, 0, 1, 1));
 
 	while (!(window->IsClosed()))
 	{

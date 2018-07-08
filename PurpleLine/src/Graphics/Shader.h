@@ -1,7 +1,7 @@
 #pragma once
-#include "CommonTypes.h"
+#include "../CommonTypes.h"
 #include <GL/glew.h>
-#include "Maths/maths.h"
+#include "../Maths/maths.h"
 
 namespace PurpleLine{ namespace Graphics{
 
