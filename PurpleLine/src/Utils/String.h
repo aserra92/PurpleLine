@@ -19,11 +19,7 @@ namespace PurpleLine {
 			memset(buffer, 0, STRINGFORMAT_BUFFER_SIZE);
 			sprintf(buffer, "%02x", t);
 			return String(buffer);
-		}
-		
-
-
-		
+		}	
 	};
 
 	inline const char* operator+(String a, const char* b)

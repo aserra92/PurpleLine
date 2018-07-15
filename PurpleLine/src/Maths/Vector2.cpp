@@ -11,7 +11,7 @@ namespace PurpleLine{namespace Math{
 		y(y)
 	{}
 
-	Vector2& Vector2::add(const Vector2& other)
+	Vector2& Vector2::Add(const Vector2& other)
 	{
 		x += other.x;
 		y += other.y;
@@ -19,7 +19,7 @@ namespace PurpleLine{namespace Math{
 		return *this;
 	}
 
-	Vector2& Vector2::subtract(const Vector2& other)
+	Vector2& Vector2::Subtract(const Vector2& other)
 	{
 		x -= other.x;
 		y -= other.y;
@@ -27,7 +27,7 @@ namespace PurpleLine{namespace Math{
 		return *this;
 	}
 
-	Vector2& Vector2::multiply(const Vector2& other)
+	Vector2& Vector2::Multiply(const Vector2& other)
 	{
 		x *= other.x;
 		y *= other.y;
@@ -35,7 +35,7 @@ namespace PurpleLine{namespace Math{
 		return *this;
 	}
 
-	Vector2& Vector2::divide(const Vector2& other)
+	Vector2& Vector2::Divide(const Vector2& other)
 	{
 		x /= other.x;
 		y /= other.y;
@@ -45,22 +45,22 @@ namespace PurpleLine{namespace Math{
 
 	Vector2 operator+(Vector2 left, const Vector2& right)
 	{
-		return left.add(right);
+		return left.Add(right);
 	}
 
 	Vector2 operator-(Vector2 left, const Vector2& right)
 	{
-		return left.subtract(right);
+		return left.Subtract(right);
 	}
 
 	Vector2 operator*(Vector2 left, const Vector2& right)
 	{
-		return left.multiply(right);
+		return left.Multiply(right);
 	}
 
 	Vector2 operator/(Vector2 left, const Vector2& right)
 	{
-		return left.divide(right);
+		return left.Divide(right);
 	}
 
 	bool Vector2::operator==(const Vector2& other)
@@ -75,22 +75,22 @@ namespace PurpleLine{namespace Math{
 
 	Vector2& Vector2::operator+=(const Vector2& other)
 	{
-		return add(other);
+		return Add(other);
 	}
 
 	Vector2& Vector2::operator-=(const Vector2& other)
 	{
-		return subtract(other);
+		return Subtract(other);
 	}
 
 	Vector2& Vector2::operator*=(const Vector2& other)
 	{
-		return multiply(other);
+		return Multiply(other);
 	}
 
 	Vector2& Vector2::operator/=(const Vector2& other)
 	{
-		return divide(other);
+		return Divide(other);
 	}
 
 	std::ostream& operator<<(std::ostream& stream, const Vector2& vec)

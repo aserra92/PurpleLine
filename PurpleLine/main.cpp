@@ -7,6 +7,7 @@
 #include "src/Graphics/SimpleRenderer2D.h"
 #include "src/Utils/Timer.h"
 #include "src/Utils/Log.h"
+#include "src/Scene/Scene2D.h"
 
 int Close()
 {
@@ -18,12 +19,18 @@ int main(int argc, char *argv[])
 {
 	using namespace PurpleLine;
 	using namespace Graphics;
+	using namespace GameObjects;
 	Window *window = new Window();
 	if (!window->Initialize())
 	{
 		return Close();
 	}
 	glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
+
+	Scene2D *scene = new Scene2D("Escena 1");
+	GameObject* rectangle = new GameObject("Rectangle 1");
+	scene->AddGameObject(rectangle);
+	rectangle->GetTransform()->SetPosition(Math::Vector3(-1, -1, 0));
 	
 	Shader *shader = new Shader("E:\\OneDrive\\els meus documents\\Aria\\jocs\\PurpleLine\\Shaders\\basic.vs", "E:\\OneDrive\\els meus documents\\Aria\\jocs\\PurpleLine\\Shaders\\basic.frag");
 	if (!shader->Compiled())

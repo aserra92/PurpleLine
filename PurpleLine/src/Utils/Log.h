@@ -1,5 +1,6 @@
 #pragma once
 #include "../CommonTypes.h"
+#include "../Maths/maths.h"
 
 #define LOG_LEVEL_FATAL 0
 #define LOG_LEVEL_ERROR 1
@@ -52,6 +53,12 @@ namespace PurpleLine{namespace Internal{
 	}
 
 	template <>
+	static String ToString<float>(const float& i)
+	{
+		return std::to_string(i);
+	}
+
+	template <>
 	static String ToString<wchar_t*>(wchar_t* const& t)
 	{
 		size_t i;
@@ -83,6 +90,24 @@ namespace PurpleLine{namespace Internal{
 	static String ToString<bool>(const bool& t)
 	{
 		return t ? "true" : "false";
+	}
+
+	template <>
+	static String ToString<Math::Vector2>(const Math::Vector2& t)
+	{
+		return String("(") + ToString(t.x) + String(", ") + ToString(t.y) + String(")");
+	}
+
+	template <>
+	static String ToString<Math::Vector3>(const Math::Vector3& t)
+	{
+		return String("(") + ToString(t.x) + String(", ") + ToString(t.y) + String(", ") + ToString(t.z) + String(")");
+	}
+
+	template <>
+	static String ToString<Math::Vector4>(const Math::Vector4& t)
+	{
+		return String("(") + ToString(t.x) + String(", ") + ToString(t.y) + String(", ") + ToString(t.z) + String(", ") + ToString(t.w) + String(")");
 	}
 
 	template <typename X, typename Y>
