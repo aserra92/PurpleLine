@@ -119,9 +119,6 @@
     <ClInclude Include="src\Graphics\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Graphics\Renderer2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\Graphics\SimpleRenderer2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>

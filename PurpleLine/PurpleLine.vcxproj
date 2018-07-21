@@ -160,7 +160,6 @@
     <ClInclude Include="src\Graphics\Buffers\ElementArrayBuffer.h" />
     <ClInclude Include="src\Graphics\Buffers\VertexArray.h" />
     <ClInclude Include="src\CommonTypes.h" />
-    <ClInclude Include="src\Graphics\Renderer2D.h" />
     <ClInclude Include="src\Graphics\SimpleRenderer2D.h" />
     <ClInclude Include="src\Maths\maths.h" />
     <ClInclude Include="src\Maths\MathsUtils.h" />
