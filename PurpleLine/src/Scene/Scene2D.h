@@ -12,6 +12,9 @@ namespace PurpleLine {
 		Scene2D(String name);
 		~Scene2D();
 
+		virtual void Update();
+		virtual void Render();
+
 		void AddGameObject(GameObject* entity);
 		inline Graphics::SimpleRenderer2D* GetRenderer() const { return renderer; }
 	private:

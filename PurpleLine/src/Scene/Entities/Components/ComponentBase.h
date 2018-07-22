@@ -8,10 +8,14 @@ namespace PurpleLine{namespace GameObjects{
 	class ComponentBase
 	{
 	public:
+		ComponentBase(GameObject* gObject) :
+			gameObject(gObject)
+		{}
+
 		virtual GameObject * GetGameObject() { return gameObject; }
 		virtual const ComponentType& GetComponentType() const { return ComponentType::None; }
 
-	private:
+	protected:
 		GameObject *gameObject;
 	};
 } }

@@ -148,7 +148,8 @@
     <ClCompile Include="src\Maths\Vector4.cpp" />
     <ClCompile Include="src\Graphics\Renderable\StaticSprite.cpp" />
     <ClCompile Include="src\Graphics\Shader.cpp" />
-    <ClCompile Include="src\Scene\Entities\Components\Transform.cpp" />
+    <ClCompile Include="src\Scene\Entities\Components\SpriteComponent.cpp" />
+    <ClCompile Include="src\Scene\Entities\Components\TransformComponent.cpp" />
     <ClCompile Include="src\Scene\Entities\GameObject.cpp" />
     <ClCompile Include="src\Scene\Scene2D.cpp" />
     <ClCompile Include="src\Utils\Log.cpp" />
@@ -171,8 +172,10 @@
     <ClInclude Include="src\Graphics\Renderable\StaticSprite.h" />
     <ClInclude Include="src\Graphics\Shader.h" />
     <ClInclude Include="src\Scene\Entities\Components\ComponentBase.h" />
+    <ClInclude Include="src\Scene\Entities\Components\Components.h" />
     <ClInclude Include="src\Scene\Entities\Components\ComponentType.h" />
-    <ClInclude Include="src\Scene\Entities\Components\Transform.h" />
+    <ClInclude Include="src\Scene\Entities\Components\SpriteComponent.h" />
+    <ClInclude Include="src\Scene\Entities\Components\TransformComponent.h" />
     <ClInclude Include="src\Scene\Entities\GameObject.h" />
     <ClInclude Include="src\Scene\Scene2D.h" />
     <ClInclude Include="src\Utils\FileUtils.h" />

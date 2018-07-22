@@ -3,14 +3,14 @@
 #include "../../../Maths/maths.h"
 namespace PurpleLine{namespace GameObjects{
 
-	class Transform : public ComponentBase
+	class TransformComponent : public ComponentBase
 	{
 	public:
-		Transform();
-		Transform(Math::Vector3 position);
-		Transform(Math::Vector3 position, Math::Vector3 rotation);
-		Transform(Math::Vector3 position, Math::Vector3 rotation, Math::Vector3 scale);
-		~Transform();
+		TransformComponent(GameObject* gObject);
+		TransformComponent(GameObject* gObject, Math::Vector3 position);
+		TransformComponent(GameObject* gObject, Math::Vector3 position, Math::Vector3 rotation);
+		TransformComponent(GameObject* gObject, Math::Vector3 position, Math::Vector3 rotation, Math::Vector3 scale);
+		~TransformComponent();
 
 		inline void SetPosition(const Math::Vector3& newPosition) { position = newPosition; }
 		inline void SetRotation(const Math::Vector3& newRotation) { rotation = newRotation; }
@@ -20,7 +20,7 @@ namespace PurpleLine{namespace GameObjects{
 		const Math::Vector3& GetRotation()const { return rotation; }
 		const Math::Vector3& GetScale()const { return scale; }
 
-		inline virtual const ComponentType& GetComponentType() const override  { return ComponentType::TransformComponent; }
+		inline virtual const ComponentType& GetComponentType() const override  { return ComponentType::TransformComponentType; }
 	private:
 		Math::Vector3 position;
 		Math::Vector3 rotation;

@@ -1,6 +1,7 @@
 #pragma once
 #include "../../Utils/String.h"
-#include "Components/Transform.h"
+#include "Components/Components.h"
+#include "../../Graphics/SimpleRenderer2D.h"
 #include <vector>
 
 namespace PurpleLine {namespace GameObjects{
@@ -11,11 +12,19 @@ namespace PurpleLine {namespace GameObjects{
 		GameObject(String name);
 		~GameObject();
 
-		Transform* GetTransform() const { return transform; }
-		void SetTransform(const Transform& newTransform) { *transform = newTransform; }
+		void Update();
+		void Render(Graphics::SimpleRenderer2D* renderer);
+
+		void AddComponent(ComponentBase* newComponent);
+		inline TransformComponent* GetTransform() const { return transform; }
+		inline void SetTransform(const TransformComponent& newTransform) { *transform = newTransform; }
+		inline bool HasChilds() const { return children.size(); }
+		bool HasComponent(ComponentType type) const;
+		ComponentBase* GetComponent(ComponentType type) const;
+		ComponentBase* GetComponent(unsigned int position) const;
 	private:
 		String name;
-		Transform* transform;
+		TransformComponent* transform;
 		std::vector<GameObject*> children;
 		std::vector<ComponentBase*> components;
 	};

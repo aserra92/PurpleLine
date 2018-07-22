@@ -40,8 +40,9 @@ int main(int argc, char *argv[])
 	shader->Enable();
 	StaticSprite* staticSprite = new StaticSprite(Math::Vector3(-1, -1, 0), Math::Vector2(2.5f, 2.5f), Math::Vector4(0, 0, 1, 1), *shader);
 	staticSprite->SetColor(Math::Vector4(0, 0, 1, 1));
+	rectangle->AddComponent(new SpriteComponent(rectangle, staticSprite));
 
-	SimpleRenderer2D* renderer = new SimpleRenderer2D();
+	//SimpleRenderer2D* renderer = new SimpleRenderer2D();
 
 	Timer time;
 	float timer = 0;
@@ -50,8 +51,9 @@ int main(int argc, char *argv[])
 	{
 		window->Clear();
 		shader->Enable();
-		renderer->Submit(staticSprite);
-		renderer->Flush();
+		scene->Render();
+		//renderer->Submit(staticSprite);
+		//renderer->Flush();
 		window->PollEventsAndSwapBuffers();
 
 		frames++;
