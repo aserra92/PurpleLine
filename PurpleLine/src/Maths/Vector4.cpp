@@ -8,6 +8,11 @@ namespace PurpleLine{namespace Math{
 		w(w)
 	{}
 
+	Vector4 Vector4::Zero()
+	{
+		return Vector4(0.0f, 0.0f, 0.0f, 0.0f);
+	}
+
 	Vector4& Vector4::add(const Vector4& other)
 	{
 		x += other.x;

@@ -1,8 +1,8 @@
 #pragma once
 #include "Renderable2D.h"
 #include "../Shader.h"
-#include "../Buffers/VertexArray.h"
-#include "../Buffers/ElementArrayBuffer.h"
+#include "../Buffers/VertexArrayObject.h"
+#include "../Buffers/IndexBufferObject.h"
 
 namespace PurpleLine{namespace Graphics{
 
@@ -13,12 +13,12 @@ namespace PurpleLine{namespace Graphics{
 		~StaticSprite();
 
 		inline Shader& GetShader()const { return shader; }
-		inline const VertexArray* GetVAO() const { return vertexArray; }
-		inline const ElementArrayBuffer* GetIBO() const { return indexBuffer; }
+		inline const VertexArrayObject* GetVAO() const { return vertexArrayObject; }
+		inline const IndexBufferObject* GetIBO() const { return indexBuffer; }
 
 	private:
 		Shader & shader;
-		VertexArray *vertexArray;
-		ElementArrayBuffer *indexBuffer;
+		VertexArrayObject *vertexArrayObject;
+		IndexBufferObject *indexBuffer;
 	};
 } }

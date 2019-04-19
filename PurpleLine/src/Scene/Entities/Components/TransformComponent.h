@@ -1,9 +1,11 @@
 #pragma once
 #include "ComponentBase.h"
-#include "../../../Maths/maths.h"
+#include "../../../Graphics/Renderable/Transform.h"
+
 namespace PurpleLine{namespace GameObjects{
 
-	class TransformComponent : public ComponentBase
+	using namespace Graphics;
+	class TransformComponent : public ComponentBase, public Transform
 	{
 	public:
 		TransformComponent(GameObject* gObject);
@@ -12,18 +14,9 @@ namespace PurpleLine{namespace GameObjects{
 		TransformComponent(GameObject* gObject, Math::Vector3 position, Math::Vector3 rotation, Math::Vector3 scale);
 		~TransformComponent();
 
-		inline void SetPosition(const Math::Vector3& newPosition) { position = newPosition; }
-		inline void SetRotation(const Math::Vector3& newRotation) { rotation = newRotation; }
-		inline void SetScale(const Math::Vector3& newScale) { scale = newScale; }
-
-		const Math::Vector3& GetPosition()const { return position; }
-		const Math::Vector3& GetRotation()const { return rotation; }
-		const Math::Vector3& GetScale()const { return scale; }
-
-		inline virtual const ComponentType& GetComponentType() const override  { return ComponentType::TransformComponentType; }
+		inline virtual const ComponentType GetComponentType() const override  { return ComponentType::TransformComponentType; }
+		inline virtual ComponentBase* Clone(GameObject* gObject) override { return new TransformComponent(gObject, position, rotation, scale); }
 	private:
-		Math::Vector3 position;
-		Math::Vector3 rotation;
-		Math::Vector3 scale;
+
 	};
 } }

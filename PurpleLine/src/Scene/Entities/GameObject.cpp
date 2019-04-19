@@ -17,7 +17,7 @@ namespace PurpleLine {namespace GameObjects{
 	{
 	}
 
-	void GameObject::Render(Graphics::SimpleRenderer2D* renderer)
+	void GameObject::Render(Graphics::BatchRenderer2D* renderer)
 	{
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
@@ -33,6 +33,11 @@ namespace PurpleLine {namespace GameObjects{
 	void GameObject::AddComponent(ComponentBase * newComponent)
 	{
 		components.push_back(newComponent);
+	}
+
+	void GameObject::AddChild(GameObject * gameObject)
+	{
+		children.push_back(gameObject);
 	}
 
 	bool GameObject::HasComponent(ComponentType type) const
@@ -66,5 +71,27 @@ namespace PurpleLine {namespace GameObjects{
 			return components[position];
 		}
 		return nullptr;
+	}
+	GameObject * GameObject::Clone()
+	{
+		GameObject* clonedGameObject = new GameObject(name + "0"); //TODO: make it more pretty
+		clonedGameObject->ClearComponents();
+		for (unsigned int i = 0; i < components.size(); i++)
+		{
+			if (components[i]->GetComponentType() == ComponentType::TransformComponentType)
+			{
+				clonedGameObject->AddComponent(components[i]->Clone(clonedGameObject));
+				clonedGameObject->transform = (TransformComponent*)GetComponent(ComponentType::TransformComponentType);
+			}
+			else
+			{
+				clonedGameObject->AddComponent(components[i]->Clone(clonedGameObject));
+			}
+		}
+		for (unsigned int i = 0; i < children.size(); i++)
+		{
+			clonedGameObject->AddChild(children[i]->Clone());
+		}
+		return clonedGameObject;
 	}
 }}

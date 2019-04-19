@@ -38,11 +38,23 @@ int main(int argc, char *argv[])
 		return Close();
 	}
 	shader->Enable();
-	StaticSprite* staticSprite = new StaticSprite(Math::Vector3(-1, -1, 0), Math::Vector2(2.5f, 2.5f), Math::Vector4(0, 0, 1, 1), *shader);
-	staticSprite->SetColor(Math::Vector4(0, 0, 1, 1));
-	rectangle->AddComponent(new SpriteComponent(rectangle, staticSprite));
-
-	//SimpleRenderer2D* renderer = new SimpleRenderer2D();
+	Sprite* sprite = new Sprite(Math::Vector3(0, 0, 0), Math::Vector2(0.05f, 0.05f), 0x0000000);
+	sprite->SetColor(Math::Vector4(1, 1, 0, 1));
+	rectangle->AddComponent(new SpriteComponent(rectangle, sprite));
+	sprite->SetTransform(rectangle->GetTransform());
+#if 0
+	for (int i = 0; i < 100; i++)
+	{
+		for (int j = 0; j < 100; j++)
+		{
+			GameObject* clone = rectangle->Clone();
+			clone->GetTransform()->SetPosition(Math::Vector3(i, j, 0));
+			((SpriteComponent*)clone->GetComponent(ComponentType::SpriteComponentType))->SetColor(Math::Vector4(i*2.55f, j*2.55f, 0, 1));
+			((SpriteComponent*)clone->GetComponent(ComponentType::SpriteComponentType))->GetSprite()->SetTransform(clone->GetTransform());
+			scene->AddGameObject(clone);
+		}
+	}
+#endif
 
 	Timer time;
 	float timer = 0;
@@ -52,8 +64,6 @@ int main(int argc, char *argv[])
 		window->Clear();
 		shader->Enable();
 		scene->Render();
-		//renderer->Submit(staticSprite);
-		//renderer->Flush();
 		window->PollEventsAndSwapBuffers();
 
 		frames++;

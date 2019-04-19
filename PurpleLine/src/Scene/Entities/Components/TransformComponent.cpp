@@ -4,33 +4,25 @@
 namespace PurpleLine{namespace GameObjects{
 TransformComponent::TransformComponent(GameObject* gObject) :
 	ComponentBase(gObject),
-	position(0, 0, 0),
-	rotation(0, 0, 0),
-	scale(1, 1, 1)
+	Transform()
 {
 }
 
 TransformComponent::TransformComponent(GameObject* gObject, Math::Vector3 position) :
 	ComponentBase(gObject),
-	position(position),
-	rotation(0, 0, 0),
-	scale(1, 1, 1)
+	Transform(position, Math::Vector3::Zero(), Math::Vector3::One())
 {
 }
 
 TransformComponent::TransformComponent(GameObject* gObject, Math::Vector3 position, Math::Vector3 rotation) :
 	ComponentBase(gObject),
-	position(position),
-	rotation(rotation),
-	scale(1, 1, 1)
+	Transform(position, rotation, Math::Vector3::One())
 {
 }
 
 TransformComponent::TransformComponent(GameObject* gObject, Math::Vector3 position, Math::Vector3 rotation, Math::Vector3 scale) :
 	ComponentBase(gObject),
-	position(position),
-	rotation(rotation),
-	scale(scale)
+	Transform(position, rotation, scale)
 {
 }
 

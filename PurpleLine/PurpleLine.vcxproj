@@ -138,9 +138,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\Graphics\Buffers\ArrayBuffer.cpp" />
-    <ClCompile Include="src\Graphics\Buffers\ElementArrayBuffer.cpp" />
-    <ClCompile Include="src\Graphics\Buffers\VertexArray.cpp" />
+    <ClCompile Include="src\Graphics\BatchRenderer2D.cpp" />
+    <ClCompile Include="src\Graphics\Buffers\VertexBufferObject.cpp" />
+    <ClCompile Include="src\Graphics\Buffers\IndexBufferObject.cpp" />
+    <ClCompile Include="src\Graphics\Buffers\VertexArrayObject.cpp" />
+    <ClCompile Include="src\Graphics\Renderable\Sprite.cpp" />
     <ClCompile Include="src\Graphics\SimpleRenderer2D.cpp" />
     <ClCompile Include="src\Maths\Matrix4.cpp" />
     <ClCompile Include="src\Maths\Vector2.cpp" />
@@ -151,16 +153,20 @@
     <ClCompile Include="src\Scene\Entities\Components\SpriteComponent.cpp" />
     <ClCompile Include="src\Scene\Entities\Components\TransformComponent.cpp" />
     <ClCompile Include="src\Scene\Entities\GameObject.cpp" />
+    <ClCompile Include="src\Scene\Layers\Layer.cpp" />
     <ClCompile Include="src\Scene\Scene2D.cpp" />
     <ClCompile Include="src\Utils\Log.cpp" />
     <ClCompile Include="src\Utils\String.cpp" />
     <ClCompile Include="src\Graphics\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Graphics\Buffers\ArrayBuffer.h" />
-    <ClInclude Include="src\Graphics\Buffers\ElementArrayBuffer.h" />
-    <ClInclude Include="src\Graphics\Buffers\VertexArray.h" />
+    <ClInclude Include="src\Graphics\BatchRenderer2D.h" />
+    <ClInclude Include="src\Graphics\Buffers\VertexBufferObject.h" />
+    <ClInclude Include="src\Graphics\Buffers\IndexBufferObject.h" />
+    <ClInclude Include="src\Graphics\Buffers\VertexArrayObject.h" />
     <ClInclude Include="src\CommonTypes.h" />
+    <ClInclude Include="src\Graphics\Renderable\Sprite.h" />
+    <ClInclude Include="src\Graphics\Renderable\Transform.h" />
     <ClInclude Include="src\Graphics\SimpleRenderer2D.h" />
     <ClInclude Include="src\Maths\maths.h" />
     <ClInclude Include="src\Maths\MathsUtils.h" />
@@ -177,6 +183,7 @@
     <ClInclude Include="src\Scene\Entities\Components\SpriteComponent.h" />
     <ClInclude Include="src\Scene\Entities\Components\TransformComponent.h" />
     <ClInclude Include="src\Scene\Entities\GameObject.h" />
+    <ClInclude Include="src\Scene\Layers\Layer.h" />
     <ClInclude Include="src\Scene\Scene2D.h" />
     <ClInclude Include="src\Utils\FileUtils.h" />
     <ClInclude Include="src\Utils\Log.h" />

@@ -10,6 +10,8 @@ namespace PurpleLine{namespace Math{
 		Vector4() = default;
 		Vector4(const float& x, const float& y, const float& z, const float& w);
 
+		static Vector4 Zero();
+
 		Vector4& add(const Vector4& other);
 		Vector4& subtract(const Vector4& other);
 		Vector4& multiply(const Vector4& other);

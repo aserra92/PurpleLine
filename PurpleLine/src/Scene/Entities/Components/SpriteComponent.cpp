@@ -11,7 +11,7 @@ namespace PurpleLine{namespace GameObjects{
 		//sprite = new StaticSprite(gameObject->GetTransform()->GetPosition(), gameObject->GetTransform()->GetScale(), );
 	}
 
-	SpriteComponent::SpriteComponent(GameObject* gObject, StaticSprite* sprite) :
+	SpriteComponent::SpriteComponent(GameObject* gObject, Sprite* sprite) :
 		ComponentBase(gObject),
 		sprite(sprite)
 	{
@@ -21,7 +21,7 @@ namespace PurpleLine{namespace GameObjects{
 	{
 	}
 
-	void SpriteComponent::Render(SimpleRenderer2D* renderer)
+	void SpriteComponent::Render(BatchRenderer2D* renderer)
 	{
 		renderer->Submit(sprite);
 	}

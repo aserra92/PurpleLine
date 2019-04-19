@@ -11,6 +11,11 @@ namespace PurpleLine{namespace Math{
 		y(y)
 	{}
 
+	Vector2 Vector2::Zero()
+	{
+		return Vector2(0.0f, 0.0f);
+	}
+
 	Vector2& Vector2::Add(const Vector2& other)
 	{
 		x += other.x;

@@ -1,11 +1,13 @@
 #pragma once
 #include "../Utils/String.h"
 #include "Entities/GameObject.h"
-#include "../Graphics/SimpleRenderer2D.h"
+#include "../Graphics/BatchRenderer2D.h"
+#include "Layers/Layer.h"
 #include <vector>
 
 namespace PurpleLine {
 	using namespace GameObjects;
+	using namespace Layers;
 	class Scene2D
 	{
 	public:
@@ -16,10 +18,12 @@ namespace PurpleLine {
 		virtual void Render();
 
 		void AddGameObject(GameObject* entity);
-		inline Graphics::SimpleRenderer2D* GetRenderer() const { return renderer; }
+		void AddLayer(Layer* layer);
+		inline Graphics::BatchRenderer2D *GetRenderer() const { return renderer; }
 	private:
 		String name;
 		std::vector<GameObject*> gameObjects;
-		Graphics::SimpleRenderer2D *renderer;
+		std::vector<Layer*> layers;
+		Graphics::BatchRenderer2D *renderer;
 	};
 }

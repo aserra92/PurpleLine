@@ -4,10 +4,10 @@
 namespace PurpleLine{namespace Graphics{
 
 StaticSprite::StaticSprite(Math::Vector3 position, Math::Vector2 size, Math::Vector4 color, Shader & shader) :
-	Renderable2D(position, size, 0xffff00ff),
+	Renderable2D(position, Math::Vector3::Zero(), size, 0xffff00ff),
 	shader(shader)
 {
-	vertexArray = new VertexArray();
+	vertexArrayObject = new VertexArrayObject();
 	GLfloat vertices[] = {
 		0, 0, 0,
 		0, size.y, 0,
@@ -23,14 +23,14 @@ StaticSprite::StaticSprite(Math::Vector3 position, Math::Vector2 size, Math::Vec
 	GLushort indices[] = {
 		0, 1, 3, 1, 2, 3
 	};
-	vertexArray->AddBuffer(new ArrayBuffer(vertices, 4 * 3, 3), 0);
-	vertexArray->AddBuffer(new ArrayBuffer(colors, 4 * 4, 4), 1);
-	indexBuffer = new ElementArrayBuffer(indices, 6);
+	vertexArrayObject->AddBuffer(new VertexBufferObject(vertices, 4 * 3, 3), 0);
+	vertexArrayObject->AddBuffer(new VertexBufferObject(colors, 4 * 4, 4), 1);
+	indexBuffer = new IndexBufferObject(indices, 6);
 }
 
 StaticSprite::~StaticSprite()
 {
-	delete vertexArray;
+	delete vertexArrayObject;
 	delete indexBuffer;
 }
 

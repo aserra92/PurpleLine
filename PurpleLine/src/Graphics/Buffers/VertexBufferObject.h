@@ -3,11 +3,11 @@
 
 namespace PurpleLine{namespace Graphics{
 
-	class ArrayBuffer
+	class VertexBufferObject
 	{
 	public:
-		ArrayBuffer(GLfloat* data, GLsizei count, GLuint componentCount);
-		~ArrayBuffer();
+		VertexBufferObject(GLfloat* data, GLsizei count, GLuint componentCount);
+		~VertexBufferObject();
 
 		void Bind() const;
 		void Unbind() const;

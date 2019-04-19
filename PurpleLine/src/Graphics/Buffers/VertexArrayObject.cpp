@@ -1,22 +1,22 @@
-#include "VertexArray.h"
+#include "VertexArrayObject.h"
 
 namespace PurpleLine{ namespace Graphics{
 	
-	VertexArray::VertexArray()
+	VertexArrayObject::VertexArrayObject()
 	{
 		glGenVertexArrays(1, &bufferID);
 	}
 
-	VertexArray::~VertexArray()
+	VertexArrayObject::~VertexArrayObject()
 	{
-		for (int i = 0; i < listBuffers.size(); i++)
+		for (size_t i = 0; i < listBuffers.size(); i++)
 		{
 			delete listBuffers[i];
 		}
 		glDeleteVertexArrays(1, &bufferID);
 	}
 
-	void VertexArray::AddBuffer(ArrayBuffer * buffer, GLuint indexLayout)
+	void VertexArrayObject::AddBuffer(VertexBufferObject * buffer, GLuint indexLayout)
 	{
 		Bind();
 		buffer->Bind();
@@ -27,12 +27,12 @@ namespace PurpleLine{ namespace Graphics{
 		listBuffers.push_back(buffer);
 	}
 
-	void VertexArray::Bind() const
+	void VertexArrayObject::Bind() const
 	{
 		glBindVertexArray(bufferID);
 	}
 
-	void VertexArray::Unbind() const
+	void VertexArrayObject::Unbind() const
 	{
 		glBindVertexArray(0);
 	}

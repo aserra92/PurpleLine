@@ -4,6 +4,8 @@
 namespace PurpleLine{ namespace Graphics {
 
 using namespace Internal;
+void ErrorCallback(int error, const char* description);
+static void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 Window::Window()
 {
@@ -31,6 +33,8 @@ bool Window::Initialize()
 	}
 	glfwMakeContextCurrent(window);
 	glfwSwapInterval(0);
+	glfwSetErrorCallback(ErrorCallback);
+	glfwSetKeyCallback(window, KeyCallback);
 
 	if (glewInit() != GLEW_OK)
 	{
@@ -67,6 +71,19 @@ void Window::PollEventsAndSwapBuffers()
 void Window::Clear()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+void ErrorCallback(int error, const char* description)
+{
+	LOG_ERROR("GLFW error: ", description);
+}
+
+static void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+	{
+		glfwSetWindowShouldClose(window, GLFW_TRUE);
+	}
 }
 
 }}

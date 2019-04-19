@@ -23,6 +23,30 @@ namespace PurpleLine{namespace Internal{
 	};
 
 	template <typename T>
+	static String ToString(const T& t);
+
+	template<typename T>
+	static String ToStringInternal(const T& t, const std::true_type& ignored)
+	{
+		sprintf(toStringBuffer, "Container of size: %d, contents: %s", t.size(), FormatIterators(t.begin(), t.end()).c_str());
+		return toStringBuffer;
+	}
+
+	template<typename T>
+	static String ToStringInternal(const T& t, const std::false_type& ignored)
+	{
+		String x = ToString(t);
+		strcpy_s(toStringBuffer, x.c_str());
+		return toStringBuffer;
+	}
+
+	template <>
+	static String ToStringInternal<const char*>(const char* const& t, const std::false_type& ignored)
+	{
+		return t;
+	}
+
+	template <typename T>
 	static String ToString(const T& t)
 	{
 		return ToStringInternal<T>(t, std::integral_constant<bool, HasIterator<T>::value>());
@@ -126,34 +150,13 @@ namespace PurpleLine{namespace Internal{
 		{
 			if (!first)
 			{
-				resut += ", ";
+				result += ", ";
 			}
 			result += ToStringInternal(*begin);
 			first = false;
 			begin++;
 		}
 		return result;
-	}
-
-	template<typename T>
-	static String ToStringInternal(const T& t, const std::true_type& ignored)
-	{
-		sprintf(toStringBuffer, "Container of size: %d, contents: %s", t.size(), FormatIterators(v.begin(), v.end()).c_str());
-		return toStringBuffer;
-	}
-
-	template<typename T>
-	static String ToStringInternal(const T& t, const std::false_type& ignored)
-	{
-		String x = ToString(t);
-		strcpy_s(toStringBuffer, x.c_str());
-		return toStringBuffer;
-	}
-
-	template <>
-	static String ToStringInternal<const char*>(const char* const& t, const std::false_type& ignored)
-	{
-		return t;
 	}
 
 	template <typename FirstType>

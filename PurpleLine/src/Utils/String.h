@@ -24,8 +24,8 @@ namespace PurpleLine {
 
 	inline const char* operator+(String a, const char* b)
 	{
-		String s(a);
-		s.append(b);
-		return s.c_str();
+		String* s = new String(a);
+		s->append(b);
+		return s->c_str();
 	}	
 }

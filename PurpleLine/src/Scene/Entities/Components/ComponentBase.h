@@ -13,7 +13,9 @@ namespace PurpleLine{namespace GameObjects{
 		{}
 
 		virtual GameObject * GetGameObject() { return gameObject; }
-		virtual const ComponentType& GetComponentType() const { return ComponentType::None; }
+		virtual const ComponentType GetComponentType() const { return ComponentType::None; }
+
+		virtual ComponentBase* Clone(GameObject* gObject) { return new ComponentBase(gObject); }
 
 	protected:
 		GameObject *gameObject;

@@ -10,6 +10,8 @@ namespace PurpleLine{namespace Math{
 
 		Vector2();
 		Vector2(const float& x, const float& y);
+		
+		static Vector2 Zero();
 
 		Vector2& Add(const Vector2& other);
 		Vector2& Subtract(const Vector2& other);

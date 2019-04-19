@@ -1,8 +1,8 @@
-#include "ArrayBuffer.h"
+#include "VertexBufferObject.h"
 
 namespace PurpleLine{namespace Graphics{
 
-	ArrayBuffer::ArrayBuffer(GLfloat * data, GLsizei count, GLuint componentCount) :
+	VertexBufferObject::VertexBufferObject(GLfloat * data, GLsizei count, GLuint componentCount) :
 		componentCount(componentCount)
 	{
 		glGenBuffers(1, &bufferID);
@@ -11,22 +11,22 @@ namespace PurpleLine{namespace Graphics{
 		Unbind();
 	}
 
-	ArrayBuffer::~ArrayBuffer()
+	VertexBufferObject::~VertexBufferObject()
 	{
 		glDeleteBuffers(1, &bufferID);
 	}
 
-	void ArrayBuffer::Bind() const
+	void VertexBufferObject::Bind() const
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, bufferID);
 	}
 
-	void ArrayBuffer::Unbind() const
+	void VertexBufferObject::Unbind() const
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 
-	GLuint ArrayBuffer::GetComponentCount() const
+	GLuint VertexBufferObject::GetComponentCount() const
 	{
 		return componentCount;
 	}

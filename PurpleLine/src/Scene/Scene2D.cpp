@@ -5,7 +5,7 @@ namespace PurpleLine {
 	Scene2D::Scene2D(String name) :
 		name(name)
 	{
-		renderer = new SimpleRenderer2D();
+		renderer = new BatchRenderer2D();
 	}
 
 	Scene2D::~Scene2D()
@@ -22,15 +22,22 @@ namespace PurpleLine {
 
 	void Scene2D::Render()
 	{
+		renderer->Begin();
 		for(unsigned int i = 0; i < gameObjects.size(); i++)
 		{
 			gameObjects[i]->Render(renderer);
 		}
+		renderer->End();
 		renderer->Flush();
 	}
 
 	void Scene2D::AddGameObject(GameObject * entity)
 	{
 		gameObjects.push_back(entity);
+	}
+
+	void Scene2D::AddLayer(Layer * layer)
+	{
+		layers.push_back(layer);
 	}
 }

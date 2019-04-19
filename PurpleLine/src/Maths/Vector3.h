@@ -9,6 +9,9 @@ namespace PurpleLine{namespace Math{
 
 		Vector3();
 		Vector3(const float& x, const float& y, const float& z);
+		
+		static Vector3 Zero();
+		static Vector3 One();
 
 		Vector3& add(const Vector3& other);
 		Vector3& subtract(const Vector3& other);

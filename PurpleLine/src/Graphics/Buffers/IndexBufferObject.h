@@ -2,12 +2,12 @@
 #include <GL/glew.h>
 namespace PurpleLine{namespace Graphics{
 
-	class ElementArrayBuffer
+	class IndexBufferObject
 	{
 	public:
-		ElementArrayBuffer(GLushort* data, GLsizei count);
-		ElementArrayBuffer(GLuint* data, GLsizei count);
-		~ElementArrayBuffer();
+		IndexBufferObject(GLushort* data, GLsizei count);
+		IndexBufferObject(GLuint* data, GLsizei count);
+		~IndexBufferObject();
 
 		void Bind() const;
 		void Unbind() const;
